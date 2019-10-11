@@ -1,0 +1,21 @@
+
+train TV x Sales
+min of J(O):6.627855953231973
+estimated Theta values for iteration:500:[[10.11455567  8.26795499]]
+RMSE for TV train data:3.6408394507948225
+
+test TV x Sales
+RMSE for TV test data:3.9092605131614144
+
+train Radio x Sales
+min of J(O):9.493644157608461
+estimated Theta values for iteration:500:[[10.82283051  7.01105184]]
+RMSE for Radio train data:4.357440569327013
+
+test Radio x Sales
+RMSE for  Radio test data:4.200750008993373
+
+train newspaper x Sales
+min of J(O):12.846999312254798
+estimated Theta values for iteration:500:[[12.96616311  3.83655296]]
+RMSE for newspaper train data:5.068924799650277
