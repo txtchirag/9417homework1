@@ -19,3 +19,6 @@ train newspaper x Sales
 min of J(O):12.846999312254798
 estimated Theta values for iteration:500:[[12.96616311  3.83655296]]
 RMSE for newspaper train data:5.068924799650277
+
+test newspaper x Sales
+RMSE for  newspaper test data:5.427934797044488
