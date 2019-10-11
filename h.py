@@ -64,8 +64,8 @@ print(f'train TV x Sales')
 X = train_data[:, [1]]
 Y = train_data[:, [4]]
 
-cost, theta_hist = gradient_descent(X, Y, theta, alpha, max_iter)
-print(f'min of J(O):{np.amin(cost)}')
+cost_TV, theta_hist = gradient_descent(X, Y, theta, alpha, max_iter)
+print(f'min of J(0):{np.amin(cost_TV)}')
 est_theta = theta_hist[-1:]
 print(f'estimated Theta values for iteration:{max_iter}:{est_theta}')
 
@@ -76,7 +76,7 @@ print()
 
 # A plot, which visualises the change in cost function J θ at each iteration.
 plt.figure()
-plt.plot(np.arange(max_iter), cost, 'b', label='cost')
+plt.plot(np.arange(max_iter), cost_TV, 'b', label='TV')
 plt.xlabel('iteration')
 plt.ylabel('normalized cost')
 plt.legend()
@@ -87,12 +87,6 @@ print(f'test TV x Sales')
 
 X = test_data[:, [1]]
 Y = test_data[:, [4]]
-
-# cost, theta_hist = gradient_descent(X, Y, theta, alpha, max_iter)
-# print(f'min of J(O):{np.amin(cost)}')
-#
-# est_theta = theta_hist[-1:]
-# print(f'estimated Theta values for iteration:{max_iter}:{est_theta}')
 
 # RMSE TV test data
 rmse = func_rmse(X, Y, est_theta)
@@ -105,8 +99,8 @@ print(f'train Radio x Sales')
 X = train_data[:, [2]]
 Y = train_data[:, [4]]
 
-cost, theta_hist = gradient_descent(X, Y, theta, alpha, max_iter)
-print(f'min of J(O):{np.amin(cost)}')
+cost_Radio, theta_hist = gradient_descent(X, Y, theta, alpha, max_iter)
+print(f'min of J(O):{np.amin(cost_Radio)}')
 
 est_theta = theta_hist[-1:]
 print(f'estimated Theta values for iteration:{max_iter}:{est_theta}')
@@ -116,14 +110,6 @@ rmse = func_rmse(X, Y, est_theta)
 print(f'RMSE for Radio train data:{rmse}')
 print()
 
-# A plot, which visualises the change in cost function J θ at each iteration.
-plt.figure()
-plt.plot(np.arange(max_iter), cost, 'b', label='cost')
-plt.xlabel('iteration')
-plt.ylabel('normalized cost')
-plt.legend()
-plt.show()
-
 
 # test Radio x Sales
 print(f'test Radio x Sales')
@@ -131,13 +117,6 @@ print(f'test Radio x Sales')
 X = test_data[:, [2]]
 Y = test_data[:, [4]]
 
-# cost, theta_hist = gradient_descent(X, Y, theta, alpha, max_iter)
-# print(f'min of J(O):{np.amin(cost)}')
-#
-# est_theta = theta_hist[-1:]
-# print(f'estimated Theta values for iteration:{max_iter}:{est_theta}')
-
-# RMSE  Radio test data
 rmse = func_rmse(X, Y, est_theta)
 print(f'RMSE for  Radio test data:{rmse}')
 print()
@@ -149,8 +128,8 @@ print(f'train newspaper x Sales')
 X = train_data[:, [3]]
 Y = train_data[:, [4]]
 
-cost, theta_hist = gradient_descent(X, Y, theta, alpha, max_iter)
-print(f'min of J(O):{np.amin(cost)}')
+cost_news, theta_hist = gradient_descent(X, Y, theta, alpha, max_iter)
+print(f'min of J(O):{np.amin(cost_news)}')
 
 est_theta = theta_hist[-1:]
 print(f'estimated Theta values for iteration:{max_iter}:{est_theta}')
@@ -161,28 +140,22 @@ print(f'RMSE for newspaper train data:{rmse}')
 print()
 
 
-# A plot, which visualises the change in cost function J θ at each iteration.
-plt.figure()
-plt.plot(np.arange(max_iter), cost, 'b', label='cost')
-plt.xlabel('iteration')
-plt.ylabel('normalized cost')
-plt.legend()
-plt.show()
-
-
 # test newspaper x Sales
 print(f'test newspaper x Sales')
 
 X = test_data[:, [3]]
 Y = test_data[:, [4]]
 
-# cost, theta_hist = gradient_descent(X, Y, theta, alpha, max_iter)
-# print(f'min of J(O):{np.amin(cost)}')
-#
-# est_theta = theta_hist[-1:]
-# print(f'estimated Theta values for iteration:{max_iter}:{est_theta}')
-
-# RMSE  newspaper test data
 rmse = func_rmse(X, Y, est_theta)
 print(f'RMSE for  newspaper test data:{rmse}')
 print()
+
+# A plot, which visualises the change in cost function J θ at each iteration.
+plt.figure()
+plt.plot(np.arange(max_iter), cost_TV, 'b', label='TV')
+plt.plot(np.arange(max_iter), cost_Radio, 'r', label='Radio')
+plt.plot(np.arange(max_iter), cost_news, 'g', label='Newspaper')
+plt.xlabel('iteration')
+plt.ylabel('normalized cost')
+plt.legend()
+plt.show()
